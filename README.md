@@ -1,10 +1,9 @@
-# FSV-Marker
-Marker tracker
-
-## Install Scripts
-
 **User:**
-$${\color{lightgreen}\texttt{curl -fsSL https://githubusercontent.com \vert\ bash}}$$
+```diff
++ curl -fsSL https://githubusercontent.com | bash
+```
 
 **Receiver:**
-$${\color{lightgreen}\texttt{curl -fsSL https://githubusercontent.com \vert\ bash}}$$
+```diff
++ curl -fsSL https://githubusercontent.com | bash
+```
