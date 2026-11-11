@@ -1,7 +1,8 @@
 ## FSV Marker Tracker
 **A Smart tracker for your tracking needs**
 
-##Install##
+## Install
+
 **User:**
 ```diff
 + curl -fsSL https://githubusercontent.com | bash
