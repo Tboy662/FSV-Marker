@@ -25,6 +25,7 @@ def resource_path(name):
 
 
 # Settings and logs go in the user's Library folder, since the app bundle is read-only.
+# Still "MarkerTracker" from the app's old name, so existing settings and data are kept
 DATA_DIR = os.path.join(os.path.expanduser("~/Library/Application Support"), "MarkerTracker")
 SAVE_PATH = os.path.join(DATA_DIR, "save.json")
 LOG_PATH = os.path.join(DATA_DIR, "markerlog.txt")
@@ -74,7 +75,7 @@ FONT_BOLD = ("Helvetica Neue", 13, "bold")
 FONT_TITLE = ("Helvetica Neue", 24, "bold")
 
 DEFAULTS = {
-    "Subject": "Automated Marker Tracker Email",
+    "Subject": "Automated Inksite Email",
     "From": "",
     "To": "",
     "Pass": "",
@@ -380,7 +381,7 @@ class Application:
         self.settings_win = None
         self.selected_color = "Blue"
         self.broadcaster = Broadcaster()
-        root.title("Marker Tracker")
+        root.title("Inksite")
         root.resizable(False, False)
 
         menubar = tk.Menu(root)
@@ -399,7 +400,7 @@ class Application:
         cv.pack()
         self.cv = cv
 
-        cv.title(W / 2, 38, "Marker Tracker")
+        cv.title(W / 2, 38, "Inksite")
         cv.panel(20, 70, 320, 245)
 
         cv.create_text(36, 88, text="Room", fill="white", font=FONT, anchor="w")
