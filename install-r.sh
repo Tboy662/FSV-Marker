@@ -5,7 +5,7 @@
 set -euo pipefail
 
 APP_NAME="MarkerReceiver.app"
-ZIP_URL="${ZIP_URL:-https://github.com/Tboy662/FSV-Marker/raw/main/MarkerReceiver.zip}"
+ZIP_URL="${ZIP_URL:-https://github.com/Tboy662/FSV-Marker/raw/main/InksiteReceiver.zip}"
 
 DEST="${DEST:-$HOME/Applications}"
 mkdir -p "$DEST"
