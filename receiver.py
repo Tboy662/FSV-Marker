@@ -23,6 +23,7 @@ try:
     SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 except ImportError:
     SSL_CONTEXT = ssl.create_default_context()
+# Still "MarkerTracker" from the app's old name, so existing data is kept
 DATA_DIR = os.path.join(os.path.expanduser("~/Library/Application Support"), "MarkerTracker")
 SAVE_PATH = os.path.join(DATA_DIR, "rsave.json")
 REQUESTS_PATH = os.path.join(DATA_DIR, "requests.xlsx")  # every request, one row each
@@ -291,7 +292,7 @@ class Receiver:
         self.root = root
         self.seen = set()  # message ids already shown
         self.popups = {}  # message id -> (window, stop button)
-        root.title("Marker Receiver")
+        root.title("Inksite Receiver")
         root.resizable(False, False)
 
         frame = ttk.Frame(root, padding=8)
@@ -346,10 +347,10 @@ class Receiver:
 
     def export(self):
         path = filedialog.asksaveasfilename(
-            parent=self.root, title="Export Marker Report", defaultextension=".xlsx",
+            parent=self.root, title="Export Inksite Report", defaultextension=".xlsx",
             filetypes=[("Excel file", "*.xlsx")],
             initialdir=os.path.expanduser("~/Desktop"),
-            initialfile=f"Marker Report {datetime.date.today()}.xlsx")
+            initialfile=f"Inksite Report {datetime.date.today()}.xlsx")
         if not path:
             return
         try:
@@ -390,7 +391,7 @@ class Receiver:
             return
 
         win = tk.Toplevel(self.root)
-        win.title("Marker Notification")
+        win.title("Inksite Notification")
         win.resizable(False, False)
         win.attributes("-topmost", True)
         win.protocol("WM_DELETE_WINDOW", lambda: None)  # only Stop Broadcast closes it
