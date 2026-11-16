@@ -1,10 +1,10 @@
 #!/bin/bash
-# Installs MarkerTracker.app without the Gatekeeper quarantine flag.
+# Installs Inksite.app without the Gatekeeper quarantine flag.
 # Usage: curl -fsSL https://raw.githubusercontent.com/Tboy662/FSV-Marker/main/install.sh | bash
 # The receiver has its own installer: install-r.sh
 set -euo pipefail
 
-APP_NAME="MarkerTracker.app"
+APP_NAME="Inksite.app"
 ZIP_URL="${ZIP_URL:-https://github.com/Tboy662/FSV-Marker/raw/main/Inksite.zip}"
 
 DEST="${DEST:-$HOME/Applications}"
@@ -22,6 +22,10 @@ osascript -e "quit app \"${APP_NAME%.app}\"" 2>/dev/null || true
 echo "Installing to $DEST..."
 ditto -x -k "$TMP/app.zip" "$TMP/unzipped"
 rm -rf "$DEST/$APP_NAME"
+
+# Remove the version from before the app was renamed (its data in Library is kept)
+osascript -e 'quit app "MarkerTracker"' 2>/dev/null || true
+rm -rf "$DEST/MarkerTracker.app"
 mv "$TMP/unzipped/$APP_NAME" "$DEST/"
 
 xattr -dr com.apple.quarantine "$DEST/$APP_NAME" 2>/dev/null || true
