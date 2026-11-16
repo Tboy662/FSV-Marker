@@ -24,8 +24,8 @@ ditto -x -k "$TMP/app.zip" "$TMP/unzipped"
 rm -rf "$DEST/$APP_NAME"
 
 # Remove the version from before the app was renamed (its data in Library is kept)
-osascript -e 'quit app "MarkerTracker"' 2>/dev/null || true
-rm -rf "$DEST/MarkerTracker.app"
+osascript -e 'quit app "Inksite"' 2>/dev/null || true
+rm -rf "$DEST/Inksite.app"
 mv "$TMP/unzipped/$APP_NAME" "$DEST/"
 
 xattr -dr com.apple.quarantine "$DEST/$APP_NAME" 2>/dev/null || true
